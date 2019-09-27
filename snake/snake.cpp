@@ -170,7 +170,7 @@ void snake::drawfield()
 		position.X = i;									// Установка координаты X
 		position.Y = 1;									// Установка координаты Y
 		SetConsoleCursorPosition(hConsole, position);
-		printf("♦");
+		wprintf(L"☺");
 	}
 
 	for (int i = 1; i <= 30; i++)
@@ -178,7 +178,7 @@ void snake::drawfield()
 		position.X = i;									// Установка координаты X
 		position.Y = 30;									// Установка координаты Y
 		SetConsoleCursorPosition(hConsole, position);
-		printf("♦");
+		wprintf(L"☺");
 	}
 
 	for (int i = 1; i <= 30; i++)
@@ -186,7 +186,7 @@ void snake::drawfield()
 		position.X = 1;									// Установка координаты X
 		position.Y = i;									// Установка координаты Y
 		SetConsoleCursorPosition(hConsole, position);
-		printf("♦");
+		wprintf(L"☺");
 	}
 
 	for (int i = 1; i <= 30; i++)
@@ -194,7 +194,7 @@ void snake::drawfield()
 		position.X = 30;									// Установка координаты X
 		position.Y = i;									// Установка координаты Y
 		SetConsoleCursorPosition(hConsole, position);
-		printf("♦");
+		wprintf(L"☺");
 	}
 
 	for (int i = 0; i < snake::currentid - 3; i++)
