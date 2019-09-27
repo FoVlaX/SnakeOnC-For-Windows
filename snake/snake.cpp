@@ -4,7 +4,7 @@ int snake::snakeids[10] = { 0 };
 int snake::field[30][30] = { 0 };
 int snake::currentid = 3;
 int snake::controlid = 3;
-
+bool snake::GAME_OVER = false;
 void snake::CONTROL()
 {
 	if (GetAsyncKeyState(VK_UP)) snake::setdircontrolsnake(0);
@@ -162,11 +162,23 @@ void snake::step()
 	{
 		EatExist = true;
 	}
+
+	if (snake::field[body[0].x][body[0].y] > 2 || snake::field[body[0].x][body[0].y]  == 1)
+	{
+		DangerExist = true;
+	}
+
 	snake::field[body[0].x][body[0].y] = id;
 	position.X = body[0].x;									// Установка координаты X
 	position.Y = body[0].y;									// Установка координаты Y
 	SetConsoleCursorPosition(hConsole, position);
 	printf("#");
+
+	if (DangerExist)
+	{
+		GAME_OVER = true;
+	}
+
 	if (EatExist)
 	{
 		length++;
@@ -195,16 +207,32 @@ int snake::getdir()
 
 snake::~snake()
 {
-	delete[]body;
+	
 }
 
-
+void snake::destroy()
+{
+	delete this;
+}
 void snake::drawfield()
 {
 	snake *cs;
 	COORD position;
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);	// Получение дескриптора устройства стандартного вывода (console)
-	
+	position.X = 0;									// Установка координаты X
+	position.Y = 0;									// Установка координаты Y
+	SetConsoleCursorPosition(hConsole, position);
+
+
+	for (int i = 0; i <= 30;i++)
+	{
+		for (int j = 0; j <= 30; j++)
+		{
+			printf(" ");
+		}
+		printf("\n");
+	}
+
 	for (int i = 1; i <= 30; i++)
 	{
 		position.X = i;									// Установка координаты X

@@ -7,12 +7,23 @@ using namespace std;
 
 int main()
 {
-	snake zm(15, 15, 4); // создание змеи
+	snake *zm = new snake(15, 15, 4); // создание змеи
 	snake::drawfield(); //отрисовка поля
 	while (true) {
-		snake::CONTROL(); // обработчик нажатия клавишь и изменения направления движения подконтрольной змеи;
-		snake::stepall(); // шаг всех змей
-		Sleep(120); //ожидание
+		if (!snake::GAME_OVER)
+		{
+			snake::CONTROL(); // обработчик нажатия клавишь и изменения направления движения подконтрольной змеи;
+			snake::stepall(); // шаг всех змей
+			Sleep(120); //ожидание
+		}
+		else
+		{
+			if (GetAsyncKeyState(VK_ESCAPE))
+			{
+				break;
+			}
+		}
 	}
+	zm->destroy();
 	return 0;
 }

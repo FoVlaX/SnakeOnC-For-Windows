@@ -6,6 +6,7 @@
 #include <stdio.h>
 
 
+
 struct Coord {
 	int x;
 	int y;
@@ -19,6 +20,7 @@ class snake
 	static int controlid; // ид подконтрольной ид
 	static void addeat();
 public:
+	static bool GAME_OVER;
 	static void CONTROL(); // контроль подконтрольной змеи
 	static void setdircontrolsnake(int d); // установка направления подконтрольнйо змеи
 	static void setcontrolsnakeid(int i); // установка змеи для контроля
@@ -31,7 +33,7 @@ public:
 	void draw(); // отрисовать змею
 	~snake(); //деструктор
 	bool proov(); // проверка на смертность возмон обудет удалена
-	
+	void destroy();
 private:
 	Coord *body= new Coord; // тело змеи
 	int dir = 0; //направление
