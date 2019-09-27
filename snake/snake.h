@@ -17,6 +17,7 @@ class snake
 	static int field[30][30]; // 0 - пусто , 1 - преиятсвие , 2 - корм , >=3 змейки
 	static int currentid; //следущий присваиваемый ид
 	static int controlid; // ид подконтрольной ид
+	static void addeat();
 public:
 	static void CONTROL(); // контроль подконтрольной змеи
 	static void setdircontrolsnake(int d); // установка направления подконтрольнйо змеи

@@ -42,6 +42,29 @@ void snake::stepall()
 	delete(cs);
 }
 
+void snake::addeat()
+{
+	int rx = 0;
+	int ry = 0;
+
+	do
+	{
+		rx = rand() % 26 + 2;
+		ry = rand() % 26 + 2;
+	} while (snake::field[rx][ry] != 0);
+	
+	snake::field[rx][ry] = 2;
+
+	COORD position;
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);	// Получение дескриптора устройства стандартного вывода (console)
+	position.X = rx;									// Установка координаты X
+	position.Y = ry;									// Установка координаты Y
+	SetConsoleCursorPosition(hConsole, position);
+	printf("*");
+
+
+}
+
 snake::snake(int x, int y, int size)
 {
 	id = snake::currentid;
@@ -79,6 +102,10 @@ void snake::step()
 	SetConsoleCursorPosition(hConsole, position);
 	printf(" ");
 	snake::field[body[length - 1].x][body[length - 1].y] = 0;
+	int lastx = body[length - 1].x;
+	int lasty = body[length - 1].y;
+	bool EatExist = false; // есть ли на пути еда
+	bool DangerExist = false; // есть ли на пути препятсвие
 	for (int i = length - 1; i > 0; i--)
 	{
 		body[i].x = body[i - 1].x;
@@ -131,11 +158,24 @@ void snake::step()
 			body[0].x = 29;
 		}
 	}
+	if (snake::field[body[0].x][body[0].y] == 2)
+	{
+		EatExist = true;
+	}
 	snake::field[body[0].x][body[0].y] = id;
 	position.X = body[0].x;									// Установка координаты X
 	position.Y = body[0].y;									// Установка координаты Y
 	SetConsoleCursorPosition(hConsole, position);
 	printf("#");
+	if (EatExist)
+	{
+		length++;
+		body = (Coord*)realloc((void*)body, sizeof(Coord) * length);
+		body[length - 1].x = lastx;
+		body[length - 1].y = lasty;
+		snake::field[body[length - 1].x][body[length - 1].y] = id;
+		snake::addeat();
+	}
 }
 
 bool snake::proov()
@@ -197,6 +237,11 @@ void snake::drawfield()
 		printf("O");
 	}
 
+	position.X = 23;									// Установка координаты X
+	position.Y = 23;									// Установка координаты Y
+	SetConsoleCursorPosition(hConsole, position);
+	printf("*");
+	snake::field[23][23] = 2;
 	for (int i = 0; i < snake::currentid - 3; i++)
 	{
 		cs = (snake*)snakeids[i];
