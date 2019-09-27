@@ -7,15 +7,12 @@ using namespace std;
 
 int main()
 {
-	snake zm(15, 15, 4);
-	snake::drawfield();
+	snake zm(15, 15, 4); // создание змеи
+	snake::drawfield(); //отрисовка пол€
 	while (true) {
-		if (GetAsyncKeyState(VK_UP)) snake::setdircontrolsnake(0);
-		if (GetAsyncKeyState(VK_DOWN)) snake::setdircontrolsnake(2);
-		if (GetAsyncKeyState(VK_RIGHT)) snake::setdircontrolsnake(1);
-		if (GetAsyncKeyState(VK_LEFT)) snake::setdircontrolsnake(3);
-		snake::stepall();
-		Sleep(60);
+		snake::CONTROL(); // обработчик нажати€ клавишь и изменени€ направлени€ движени€ подконтрольной змеи;
+		snake::stepall(); // шаг всех змей
+		Sleep(60); //ожидание
 	}
 	return 0;
 }

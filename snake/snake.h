@@ -13,28 +13,29 @@ struct Coord {
 
 class snake
 {
-	static int snakeids[10];
+	static int snakeids[10]; //массив с указателями на объекты змей
 	static int field[30][30]; // 0 - пусто , 1 - преиятсвие , 2 - корм , >=3 змейки
-	static int currentid;
-	static int controlid;
+	static int currentid; //следущий присваиваемый ид
+	static int controlid; // ид подконтрольной ид
 public:
-	static void setdircontrolsnake(int d);
-	static void setcontrolsnakeid(int i);
-	static void drawfield();
-	static void stepall();
-	snake(int x, int y, int size);
-	void step();
-	void setdir(int d);
-	int getdir();
-	void draw();
-	~snake();
-	bool proov();
+	static void CONTROL(); // контроль подконтрольной змеи
+	static void setdircontrolsnake(int d); // установка направления подконтрольнйо змеи
+	static void setcontrolsnakeid(int i); // установка змеи для контроля
+	static void drawfield(); // отрисовка поля
+	static void stepall(); // выполнить все шаги всех змей
+	snake(int x, int y, int size); //конструктор
+	void step(); //выполенние перемещения
+	void setdir(int d); //установить направление
+	int getdir(); // вернуть направление
+	void draw(); // отрисовать змею
+	~snake(); //деструктор
+	bool proov(); // проверка на смертность возмон обудет удалена
 	
 private:
-	Coord *body= new Coord;
-	int dir = 0;
-	int id;
-	int length = 1;
+	Coord *body= new Coord; // тело змеи
+	int dir = 0; //направление
+	int id; //ид змеи
+	int length = 1; // длина змеи
 };
 
 // 0 - up, 1 - right, 2 - down, 3 -  left;

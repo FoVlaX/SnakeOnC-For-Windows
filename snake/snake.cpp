@@ -5,6 +5,14 @@ int snake::field[30][30] = { 0 };
 int snake::currentid = 3;
 int snake::controlid = 3;
 
+void snake::CONTROL()
+{
+	if (GetAsyncKeyState(VK_UP)) snake::setdircontrolsnake(0);
+	if (GetAsyncKeyState(VK_DOWN)) snake::setdircontrolsnake(2);
+	if (GetAsyncKeyState(VK_RIGHT)) snake::setdircontrolsnake(1);
+	if (GetAsyncKeyState(VK_LEFT)) snake::setdircontrolsnake(3);
+}
+
 void snake :: setdircontrolsnake(int d) {
 	snake* cs;
 	cs = (snake*)snakeids[controlid-3];
