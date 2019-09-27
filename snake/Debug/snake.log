@@ -1,0 +1,6 @@
+﻿  snake.cpp
+C:\Users\vlad\source\repos\SnakeOnline\snake\snake.cpp(165,10): warning C4566: символ, представленный универсальным именем символа "\u2666", невозможно представить в текущей кодовой странице (1251)
+C:\Users\vlad\source\repos\SnakeOnline\snake\snake.cpp(173,10): warning C4566: символ, представленный универсальным именем символа "\u2666", невозможно представить в текущей кодовой странице (1251)
+C:\Users\vlad\source\repos\SnakeOnline\snake\snake.cpp(181,10): warning C4566: символ, представленный универсальным именем символа "\u2666", невозможно представить в текущей кодовой странице (1251)
+C:\Users\vlad\source\repos\SnakeOnline\snake\snake.cpp(189,10): warning C4566: символ, представленный универсальным именем символа "\u2666", невозможно представить в текущей кодовой странице (1251)
+  snake.vcxproj -> C:\Users\vlad\source\repos\SnakeOnline\Debug\snake.exe
