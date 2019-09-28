@@ -5,12 +5,41 @@ int snake::field[30][30] = { 0 };
 int snake::currentid = 3;
 int snake::controlid = 3;
 bool snake::GAME_OVER = false;
+char snake::pressDel[30] = {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','P','r','e','s','s',' ','d','e','l','e','t','e',' ','o','r',' ','E','S','P',' ' };
 void snake::CONTROL()
 {
 	if (GetAsyncKeyState(VK_UP)) snake::setdircontrolsnake(0);
 	if (GetAsyncKeyState(VK_DOWN)) snake::setdircontrolsnake(2);
 	if (GetAsyncKeyState(VK_RIGHT)) snake::setdircontrolsnake(1);
 	if (GetAsyncKeyState(VK_LEFT)) snake::setdircontrolsnake(3);
+}
+
+void snake::showPressDel()
+{
+	COORD position;
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);	// Получение дескриптора устройства стандартного вывода (console)
+	position.X = 1;									// Установка координаты X
+	position.Y = 15;									// Установка координаты Y
+	SetConsoleCursorPosition(hConsole, position);
+	for (int i = 0; i < 30; i++)
+	{
+		printf("%c",snake::pressDel[i]);
+	}
+	char p = snake::pressDel[0];
+	for (int i = 0; i < 29; i++)
+	{
+		snake::pressDel[i] = snake::pressDel[i + 1];
+	}
+	snake::pressDel[29] = p;
+	
+}
+void snake::allnull()
+{
+
+	for (int i=0;i<10;i++)
+	 snake::snakeids[i] =  0;
+	 snake::currentid = 3;
+	 snake::controlid = 3;
 }
 
 void snake :: setdircontrolsnake(int d) {
@@ -224,10 +253,11 @@ void snake::drawfield()
 	SetConsoleCursorPosition(hConsole, position);
 
 
-	for (int i = 0; i <= 30;i++)
+	for (int i = 0; i < 30;i++)
 	{
-		for (int j = 0; j <= 30; j++)
+		for (int j = 0; j < 30; j++)
 		{
+			snake::field[i][j] = 0;
 			printf(" ");
 		}
 		printf("\n");

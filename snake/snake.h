@@ -19,7 +19,10 @@ class snake
 	static int currentid; //следущий присваиваемый ид
 	static int controlid; // ид подконтрольной ид
 	static void addeat();
+	static char pressDel[30];
 public:
+	static void showPressDel();
+	static void allnull();
 	static bool GAME_OVER;
 	static void CONTROL(); // контроль подконтрольной змеи
 	static void setdircontrolsnake(int d); // установка направления подконтрольнйо змеи
