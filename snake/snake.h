@@ -1,4 +1,4 @@
-
+п»ї
 
 
 #pragma once
@@ -14,31 +14,32 @@ struct Coord {
 
 class snake
 {
-	static int snakeids[10]; //массив с указателями на объекты змей
-	static int field[30][30]; // 0 - пусто , 1 - преиятсвие , 2 - корм , >=3 змейки
-	static int currentid; //следущий присваиваемый ид
-	static int controlid; // ид подконтрольной ид
+	static int snakeids[10]; //РјР°СЃСЃРёРІ СЃ СѓРєР°Р·Р°С‚РµР»СЏРјРё РЅР° РѕР±СЉРµРєС‚С‹ Р·РјРµР№
+	static int field[30][30]; // 0 - РїСѓСЃС‚Рѕ , 1 - РїСЂРµРёСЏС‚СЃРІРёРµ , 2 - РєРѕСЂРј , >=3 Р·РјРµР№РєРё
+	static int currentid; //СЃР»РµРґСѓС‰РёР№ РїСЂРёСЃРІР°РёРІР°РµРјС‹Р№ РёРґ
+	static int controlid; // РёРґ РїРѕРґРєРѕРЅС‚СЂРѕР»СЊРЅРѕР№ РёРґ
 	static void addeat();
 public:
 	static bool GAME_OVER;
-	static void CONTROL(); // контроль подконтрольной змеи
-	static void setdircontrolsnake(int d); // установка направления подконтрольнйо змеи
-	static void setcontrolsnakeid(int i); // установка змеи для контроля
-	static void drawfield(); // отрисовка поля
-	static void stepall(); // выполнить все шаги всех змей
-	snake(int x, int y, int size); //конструктор
-	void step(); //выполенние перемещения
-	void setdir(int d); //установить направление
-	int getdir(); // вернуть направление
-	void draw(); // отрисовать змею
-	~snake(); //деструктор
-	bool proov(); // проверка на смертность возмон обудет удалена
+	static void CONTROL(); // РєРѕРЅС‚СЂРѕР»СЊ РїРѕРґРєРѕРЅС‚СЂРѕР»СЊРЅРѕР№ Р·РјРµРё
+	static void setdircontrolsnake(int d); // СѓСЃС‚Р°РЅРѕРІРєР° РЅР°РїСЂР°РІР»РµРЅРёСЏ РїРѕРґРєРѕРЅС‚СЂРѕР»СЊРЅР№Рѕ Р·РјРµРё
+	static void setcontrolsnakeid(int i); // СѓСЃС‚Р°РЅРѕРІРєР° Р·РјРµРё РґР»СЏ РєРѕРЅС‚СЂРѕР»СЏ
+	static void drawfield(); // РѕС‚СЂРёСЃРѕРІРєР° РїРѕР»СЏ
+	static void stepall(); // РІС‹РїРѕР»РЅРёС‚СЊ РІСЃРµ С€Р°РіРё РІСЃРµС… Р·РјРµР№
+	snake(int x, int y, int size); //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+	void step(); //РІС‹РїРѕР»РµРЅРЅРёРµ РїРµСЂРµРјРµС‰РµРЅРёСЏ
+	void setdir(int d); //СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РЅР°РїСЂР°РІР»РµРЅРёРµ
+	int getdir(); // РІРµСЂРЅСѓС‚СЊ РЅР°РїСЂР°РІР»РµРЅРёРµ
+	void draw(); // РѕС‚СЂРёСЃРѕРІР°С‚СЊ Р·РјРµСЋ
+	~snake(); //РґРµСЃС‚СЂСѓРєС‚РѕСЂ
+	bool proov(); // РїСЂРѕРІРµСЂРєР° РЅР° СЃРјРµСЂС‚РЅРѕСЃС‚СЊ РІРѕР·РјРѕРЅ РѕР±СѓРґРµС‚ СѓРґР°Р»РµРЅР°
 	void destroy();
 private:
-	Coord *body= new Coord; // тело змеи
-	int dir = 0; //направление
-	int id; //ид змеи
-	int length = 1; // длина змеи
+	Coord *body= new Coord; // С‚РµР»Рѕ Р·РјРµРё
+	int dir = 0; //РЅР°РїСЂР°РІР»РµРЅРёРµ
+	int id; //РёРґ Р·РјРµРё
+	int length = 1; // РґР»РёРЅР° Р·РјРµРё
+	
 };
 
 // 0 - up, 1 - right, 2 - down, 3 -  left;

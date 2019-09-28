@@ -3,8 +3,6 @@
 #include "snake.h"
 using namespace std;
 
-
-
 int main()
 {
 	snake *zm = new snake(15, 15, 4); // создание змеи
